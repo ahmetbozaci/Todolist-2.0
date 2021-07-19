@@ -1,4 +1,3 @@
-
 import './style.css';
 
 const tasks = [
@@ -11,7 +10,7 @@ const createList = (todo) => {
   const container = document.getElementById('container');
   const item = document.createElement('div');
   item.classList.add('item', 'border', 'draggable');
-  item.setAttribute('draggable', true)
+  item.setAttribute('draggable', true);
   const checkbox = document.createElement('input');
   checkbox.setAttribute('type', 'checkbox');
   const span = document.createElement('span');

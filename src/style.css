@@ -143,6 +143,7 @@ table {
   margin: auto;
   width: 40%;
 }
+
 .item {
   display: flex;
   justify-content: space-between;
