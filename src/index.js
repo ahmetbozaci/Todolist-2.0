@@ -1,12 +1,29 @@
-import _ from 'lodash';
 import './style.css';
-function component() {
-  const element = document.createElement('div');
 
-  // Lodash, currently included via a script, is required for this line to work
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+const tasks = [
+  { index: 0, description: 'Learn webpack', completed: false },
+  { index: 1, description: 'Read 20 pages of book', completed: false },
+  { index: 2, description: 'Create portfolio', completed: false },
+];
 
-  return element;
-}
+const createList = (todo) => {
+  const container = document.getElementById('container');
+  const item = document.createElement('div');
+  item.classList.add('item', 'border', 'draggable');
+  item.setAttribute('draggable', true);
+  const checkbox = document.createElement('input');
+  checkbox.setAttribute('type', 'checkbox');
+  const span = document.createElement('span');
+  span.classList.add('text');
+  const icon = document.createElement('i');
+  icon.classList.add('fas', 'fa-ellipsis-v');
+  if (todo !== undefined) {
+    container.appendChild(item);
+    span.innerHTML = todo;
+    item.append(checkbox, span, icon);
+  }
+};
 
-document.body.appendChild(component());
+tasks.forEach((item) => {
+  createList(item.description);
+});
