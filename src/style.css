@@ -130,3 +130,69 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
+/*! PAGE STYLING START HERE  */
+.page {
+  font-size: 20px;
+  color: #3b3b3b;
+  font-family: 'Open Sans', 'Lucida Grande', tahoma, verdana, arial, sans-serif;
+  font-weight: 300;
+}
+
+.center {
+  margin: auto;
+  width: 40%;
+}
+.item {
+  display: flex;
+  justify-content: space-between;
+}
+
+li {
+  list-style-type: none;
+  cursor: move;
+  user-select: none;
+}
+
+.box {
+  box-sizing: border-box;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 50%);
+  margin-top: 10rem;
+  border-radius: 5px;
+}
+
+.border {
+  border-bottom: 1px solid #b8b6b6;
+  padding: 1.2rem 1rem;
+}
+
+input {
+  border: 0;
+  outline: none;
+  color: rgb(80, 79, 79);
+  font-size: 15px;
+}
+
+#input-text {
+  width: 94%;
+}
+
+.clear {
+  text-align: center;
+  background-color: #dfdbdb;
+}
+
+input[type='checkbox'] {
+  cursor: pointer;
+  transform: scale(1.5);
+}
+
+.check {
+  text-decoration: line-through;
+  text-decoration-thickness: 0.1rem;
+  color: #838282;
+}
+
+.draggable.dragging {
+  opacity: 0.5;
+}
