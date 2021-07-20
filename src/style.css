@@ -139,7 +139,7 @@ table {
   font-weight: 300;
 }
 
-.center {
+.centerToPage {
   margin: auto;
   width: 40%;
 }
@@ -162,7 +162,7 @@ li {
   border-radius: 5px;
 }
 
-.border {
+.borderBottom {
   border-bottom: 1px solid #b8b6b6;
   padding: 1.2rem 1rem;
 }

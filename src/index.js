@@ -1,5 +1,5 @@
 //import './style.css';
-import statusUpdate from './statusUpdate.js';
+import todoStatusUpdate from './todoStatusUpdate.js';
 // import move from './move.js'
 
 const tasks = localStorage.getItem('items')
@@ -21,7 +21,7 @@ const createList = (todoItem) => {
   const todoAppContainer = document.getElementById('todoAppContainer');
 
   const todoItemElement = document.createElement('div');
-  todoItemElement.classList.add('item', 'border', 'draggable');
+  todoItemElement.classList.add('item', 'borderBottom', 'draggable');
   todoItemElement.setAttribute('draggable', true);
 
   const checkbox = document.createElement('input');
@@ -31,9 +31,9 @@ const createList = (todoItem) => {
   const descriptionSpan = document.createElement('span');
   descriptionSpan.classList.add('text');
 
-  if(todoItem.completed) {
+  if (todoItem.completed) {
     descriptionSpan.classList.add('check');
-  }
+  };
 
   const icon = document.createElement('i');
   icon.classList.add('fas', 'fa-ellipsis-v');
@@ -42,11 +42,10 @@ const createList = (todoItem) => {
   descriptionSpan.innerHTML = todoItem.description;
   todoItemElement.append(checkbox, descriptionSpan, icon);
 
-  statusUpdate(tasks)
-  // move()  
+  todoStatusUpdate(tasks);
+  // move()
 };
 
-data.forEach((item) => {
-  createList(item);
+data.forEach((object) => {
+  createList(object);
 });
-
