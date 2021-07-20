@@ -1,4 +1,5 @@
-import './style.css';
+//import './style.css';
+import statusUpdate from './statusUpdate.js';
 
 const tasks = [
   { index: 0, description: 'Learn webpack', completed: false },
@@ -22,8 +23,10 @@ const createList = (todo) => {
     span.innerHTML = todo;
     item.append(checkbox, span, icon);
   }
+  statusUpdate(tasks)
 };
 
 tasks.forEach((item) => {
   createList(item.description);
 });
+
