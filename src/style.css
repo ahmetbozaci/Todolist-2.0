@@ -194,6 +194,6 @@ input[type='checkbox'] {
   color: #838282;
 }
 
-.draggable.dragging {
+.dragging {
   opacity: 0.5;
 }
