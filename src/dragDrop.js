@@ -8,14 +8,12 @@ export default function dragDrop(tasks) {
     });
     draggable.addEventListener('dragend', () => {
       draggable.classList.remove('dragging');
-      const todoItemsDiv = document.querySelectorAll('.item')
-      for(let i=0; i < draggables.length; i += 1) {
-        //console.log(test[i].id)
+      const todoItemsDiv = document.querySelectorAll('.item');
+      for (let i = 0; i < draggables.length; i += 1) {
         tasks[(todoItemsDiv[i].id)].index = i
-      }
-      tasks = tasks.sort((a,b) => (a.index - b.index));
+      };
+      tasks = tasks.sort((a, b) => (a.index - b.index));
       localStorage.setItem('items', JSON.stringify(tasks))
-      location.reload();
     });
   });
 
@@ -23,7 +21,7 @@ export default function dragDrop(tasks) {
     e.preventDefault();
     const currentDraggable = document.querySelector('.dragging');
     const afterElement = getDragAfterElement(todoAppContainer, e.clientY);
-    
+
     if (afterElement == null) {
       todoAppContainer.appendChild(currentDraggable);
     } else {
