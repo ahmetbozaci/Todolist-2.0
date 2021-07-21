@@ -1,5 +1,5 @@
-
-export default function dragDrop() {
+/* eslint-disable no-unused-vars */
+export default function dragDrop(tasks) {
   const todoAppContainer = document.getElementById('todoAppContainer');
   const draggables = document.querySelectorAll('.draggable');
   draggables.forEach((draggable) => {
@@ -9,36 +9,39 @@ export default function dragDrop() {
 
     draggable.addEventListener('dragend', () => {
       draggable.classList.remove('dragging');
+      let test = document.querySelectorAll('.item')
     });
   });
 
-todoAppContainer.addEventListener('dragover', (e) => {
-  e.preventDefault()
-  const currentDraggable = document.querySelector('.dragging');
-  const afterElement = getDragAfterElement(todoAppContainer, e.clientY);
-  if (afterElement == null) {
-    todoAppContainer.appendChild(currentDraggable)
-  } else {
-    todoAppContainer.insertBefore(currentDraggable, afterElement)
-  }
-});
+  todoAppContainer.addEventListener('dragover', (e) => {
+    e.preventDefault();
+    const currentDraggable = document.querySelector('.dragging');
+    const afterElement = getDragAfterElement(todoAppContainer, e.clientY);
+    if (afterElement == null) {
+      todoAppContainer.appendChild(currentDraggable);
+    } else {
+      todoAppContainer.insertBefore(currentDraggable, afterElement);
+    }
+  });
 
 }
 
-function getDragAfterElement(container,y) {
-  const draggableElements = [...container.querySelectorAll('.item:not(.dragging)')];
+function getDragAfterElement(container, y) {
+  const draggableElements = [
+    ...container.querySelectorAll('.item:not(.dragging)'),
+  ];
   return draggableElements.reduce(
     (closest, child) => {
       const box = child.getBoundingClientRect();
-      const offset = y - box.top -box.height / 2;
+      const offset = y - box.top - box.height / 2;
       if (offset < 0 && offset > closest.offset) {
-        return { offset, element: child};
+        return { offset, element: child };
       }
       return closest;
     },
     {
       offset: Number.NEGATIVE_INFINITY,
-    },
+    }
   ).element;
 }
-
+/* eslint-enable no-unused-vars */

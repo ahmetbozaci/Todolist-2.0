@@ -33,24 +33,19 @@ const createList = (todoItem) => {
 
   if (todoItem.completed) {
     descriptionSpan.classList.add('check');
-  };
+  }
 
   const icon = document.createElement('i');
   icon.classList.add('fas', 'fa-ellipsis-v');
 
   todoAppContainer.appendChild(todoItemElement);
-  descriptionSpan.innerHTML = todoItem.description;
+  descriptionSpan.innerHTML = `${todoItem.index}.index - ${todoItem.description}`;
   todoItemElement.append(checkbox, descriptionSpan, icon);
- 
   todoStatusUpdate(tasks);
+  dragDrop(tasks);
 };
-
-
-
 
 
 data.forEach((object) => {
   createList(object);
 });
-dragDrop()
-
