@@ -1,4 +1,4 @@
-//import './style.css';
+import './style.css';
 import todoStatusUpdate from './todoStatusUpdate.js';
 import dragDrop from './dragDrop.js';
 
