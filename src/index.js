@@ -1,6 +1,6 @@
 //import './style.css';
 import todoStatusUpdate from './todoStatusUpdate.js';
-// import move from './move.js'
+import dragDrop from './dragDrop.js';
 
 const tasks = localStorage.getItem('items')
   ? JSON.parse(localStorage.getItem('items'))
@@ -41,10 +41,17 @@ const createList = (todoItem) => {
   todoAppContainer.appendChild(todoItemElement);
   descriptionSpan.innerHTML = todoItem.description;
   todoItemElement.append(checkbox, descriptionSpan, icon);
-
+ 
   todoStatusUpdate(tasks);
-  // move()
 };
+
+dragDrop()
+
+
+// const draggables = document.querySelectorAll('draggable');
+
+// console.log([...draggables])
+
 
 data.forEach((object) => {
   createList(object);
