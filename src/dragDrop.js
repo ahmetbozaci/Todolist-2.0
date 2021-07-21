@@ -1,4 +1,4 @@
-/* eslint-disable no-unused-vars, no-use-before-define*/
+/* eslint-disable no-unused-vars, no-use-before-define */
 export default function dragDrop(tasks) {
   const todoAppContainer = document.getElementById('todoAppContainer');
   const draggables = document.querySelectorAll('.draggable');
@@ -39,7 +39,7 @@ function getDragAfterElement(container, y) {
     },
     {
       offset: Number.NEGATIVE_INFINITY,
-    }
+    },
   ).element;
 }
-/* eslint-enable no-unused-vars, no-use-before-define*/
+/* eslint-enable no-unused-vars, no-use-before-define */
