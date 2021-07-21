@@ -45,14 +45,12 @@ const createList = (todoItem) => {
   todoStatusUpdate(tasks);
 };
 
-dragDrop()
 
 
-// const draggables = document.querySelectorAll('draggable');
-
-// console.log([...draggables])
 
 
 data.forEach((object) => {
   createList(object);
 });
+dragDrop()
+
