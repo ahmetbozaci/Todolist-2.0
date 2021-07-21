@@ -1,4 +1,4 @@
-import './style.css';
+//import './style.css';
 import todoStatusUpdate from './todoStatusUpdate.js';
 import dragDrop from './dragDrop.js';
 
@@ -38,10 +38,10 @@ const createList = (todoItem) => {
 
   const icon = document.createElement('i');
   icon.classList.add('fas', 'fa-ellipsis-v');
-  dragDrop(tasks);
   todoAppContainer.appendChild(todoItemElement);
   descriptionSpan.innerHTML = todoItem.description;
   todoItemElement.append(checkbox, descriptionSpan, icon);
+  dragDrop(tasks);
   todoStatusUpdate(tasks);
 };
 

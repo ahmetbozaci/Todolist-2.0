@@ -11,6 +11,7 @@ export default function dragDrop(tasks) {
       const todoItemsDiv = document.querySelectorAll('.item');
       for (let i = 0; i < draggables.length; i += 1) {
         tasks[(todoItemsDiv[i].id)].index = i;
+        todoItemsDiv[i].id = i;
       }
       tasks = tasks.sort((a, b) => (a.index - b.index));
       localStorage.setItem('items', JSON.stringify(tasks));
@@ -21,7 +22,6 @@ export default function dragDrop(tasks) {
     e.preventDefault();
     const currentDraggable = document.querySelector('.dragging');
     const afterElement = getDragAfterElement(todoAppContainer, e.clientY);
-
     if (afterElement == null) {
       todoAppContainer.appendChild(currentDraggable);
     } else {
