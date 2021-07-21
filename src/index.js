@@ -1,4 +1,4 @@
-import './style.css';
+// import './style.css';
 import todoStatusUpdate from './todoStatusUpdate.js';
 import dragDrop from './dragDrop.js';
 
@@ -18,6 +18,7 @@ const createList = (todoItem) => {
 
   const todoItemElement = document.createElement('div');
   todoItemElement.classList.add('item', 'borderBottom', 'draggable');
+  todoItemElement.id = todoItem.index;
   todoItemElement.setAttribute('draggable', true);
 
   const checkbox = document.createElement('input');
@@ -40,6 +41,7 @@ const createList = (todoItem) => {
   todoStatusUpdate(tasks);
   dragDrop(tasks);
 };
+
 
 data.forEach((object) => {
   createList(object);
