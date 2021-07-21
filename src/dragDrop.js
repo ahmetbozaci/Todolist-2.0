@@ -9,7 +9,6 @@ export default function dragDrop(tasks) {
 
     draggable.addEventListener('dragend', () => {
       draggable.classList.remove('dragging');
-      let test = document.querySelectorAll('.item')
     });
   });
 
@@ -23,7 +22,6 @@ export default function dragDrop(tasks) {
       todoAppContainer.insertBefore(currentDraggable, afterElement);
     }
   });
-
 }
 
 function getDragAfterElement(container, y) {
