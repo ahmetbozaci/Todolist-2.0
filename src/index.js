@@ -1,10 +1,14 @@
-// import './style.css';
+import './style.css';
 import todoStatusUpdate from './todoStatusUpdate.js';
 import dragDrop from './dragDrop.js';
 
 const tasks = localStorage.getItem('items')
   ? JSON.parse(localStorage.getItem('items'))
-  : [{ index: 0, description: 'Learn webpack', completed: false }, { index: 1, description: 'Read 20 pages of book', completed: false }, { index: 2, description: 'Create portfolio', completed: false }];
+  : [
+      { index: 0, description: 'Learn webpack', completed: false },
+      { index: 1, description: 'Read 20 pages of book', completed: false },
+      { index: 2, description: 'Create portfolio', completed: false },
+    ];
 
 localStorage.setItem('items', JSON.stringify(tasks));
 const data = JSON.parse(localStorage.getItem('items'));
@@ -36,12 +40,12 @@ const createList = (todoItem) => {
   icon.classList.add('fas', 'fa-ellipsis-v');
 
   todoAppContainer.appendChild(todoItemElement);
+  dragDrop(tasks);
   descriptionSpan.innerHTML = `${todoItem.index}.index - ${todoItem.description}`;
   todoItemElement.append(checkbox, descriptionSpan, icon);
   todoStatusUpdate(tasks);
-  dragDrop(tasks);
+  
 };
-
 
 data.forEach((object) => {
   createList(object);
