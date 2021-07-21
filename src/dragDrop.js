@@ -10,10 +10,10 @@ export default function dragDrop(tasks) {
       draggable.classList.remove('dragging');
       const todoItemsDiv = document.querySelectorAll('.item');
       for (let i = 0; i < draggables.length; i += 1) {
-        tasks[(todoItemsDiv[i].id)].index = i
-      };
+        tasks[(todoItemsDiv[i].id)].index = i;
+      }
       tasks = tasks.sort((a, b) => (a.index - b.index));
-      localStorage.setItem('items', JSON.stringify(tasks))
+      localStorage.setItem('items', JSON.stringify(tasks));
     });
   });
 
