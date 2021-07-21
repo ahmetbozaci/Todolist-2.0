@@ -4,7 +4,7 @@ import dragDrop from './dragDrop.js';
 
 const tasks = localStorage.getItem('items')
   ? JSON.parse(localStorage.getItem('items'))
-  : [ { index: 0, description: 'Learn webpack', completed: false }, { index: 1, description: 'Read 20 pages of book', completed: false }, { index: 2, description: 'Create portfolio', completed: false },];
+  : [{ index: 0, description: 'Learn webpack', completed: false }, { index: 1, description: 'Read 20 pages of book', completed: false }, { index: 2, description: 'Create portfolio', completed: false }];
 
 localStorage.setItem('items', JSON.stringify(tasks));
 const data = JSON.parse(localStorage.getItem('items'));

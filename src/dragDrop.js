@@ -1,4 +1,4 @@
-/* eslint-disable no-unused-vars */
+/* eslint-disable no-unused-vars, no-use-before-define*/
 export default function dragDrop(tasks) {
   const todoAppContainer = document.getElementById('todoAppContainer');
   const draggables = document.querySelectorAll('.draggable');
@@ -42,4 +42,4 @@ function getDragAfterElement(container, y) {
     }
   ).element;
 }
-/* eslint-enable no-unused-vars */
+/* eslint-enable no-unused-vars, no-use-before-define*/
