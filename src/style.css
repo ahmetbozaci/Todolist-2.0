@@ -178,7 +178,6 @@ input {
   width: 94%;
 }
 
-
 input[type='checkbox'] {
   cursor: pointer;
   transform: scale(1.5);
@@ -198,7 +197,8 @@ input[type='checkbox'] {
   text-align: center;
   background-color: #dfdbdb;
 }
-.clearAll:hover{
+
+.clearAll:hover {
   text-decoration-line: underline;
   cursor: pointer;
 }

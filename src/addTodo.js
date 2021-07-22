@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const addTodoTextToBox = (tasks, createList) => {
   const inputText = document.getElementById('input-text');
   inputText.addEventListener('keyup', (e) => {
@@ -7,12 +8,13 @@ const addTodoTextToBox = (tasks, createList) => {
         description: `${inputText.value}`,
         completed: false,
       };
-      //createList(newItem);
+
       tasks.push(newItem);
       localStorage.setItem('items', JSON.stringify(tasks));
-      location.reload()
+      location.reload();
     }
   });
 };
 
 export default addTodoTextToBox;
+/* eslint-enable no-unused-vars */
