@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 const deleteCompletedTodoItem = (tasks) => {
   const clearAll = document.getElementsByClassName('clearAll');
   clearAll[0].addEventListener('click', () => {
@@ -14,3 +15,4 @@ const deleteCompletedTodoItem = (tasks) => {
 };
 
 export default deleteCompletedTodoItem;
+/* eslint-enable no-restricted-globals */

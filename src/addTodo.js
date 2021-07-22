@@ -1,4 +1,4 @@
-/* eslint-disable no-unused-vars */
+/* eslint-disable no-unused-vars, no-restricted-globals */
 const addTodoTextToBox = (tasks, createList) => {
   const inputText = document.getElementById('input-text');
   inputText.addEventListener('keyup', (e) => {
@@ -17,4 +17,4 @@ const addTodoTextToBox = (tasks, createList) => {
 };
 
 export default addTodoTextToBox;
-/* eslint-enable no-unused-vars */
+/* eslint-enable no-unused-vars, no-restricted-globals */
