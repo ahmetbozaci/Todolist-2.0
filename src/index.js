@@ -1,6 +1,7 @@
 //import './style.css';
 import todoStatusUpdate from './todoStatusUpdate.js';
 import dragDrop from './dragDrop.js';
+import deleteCompletedTodoItem from './deleteAll.js';
 
 const tasks = localStorage.getItem('items')
   ? JSON.parse(localStorage.getItem('items'))
@@ -63,6 +64,8 @@ const createList = (todoItem) => {
   todoStatusUpdate(tasks);
 };
 
+
+deleteCompletedTodoItem(tasks);
 data.forEach((object) => {
   createList(object);
 });
