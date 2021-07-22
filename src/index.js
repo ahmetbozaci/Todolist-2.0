@@ -1,29 +1,50 @@
 import './style.css';
+import todoStatusUpdate from './todoStatusUpdate.js';
+import dragDrop from './dragDrop.js';
 
-const tasks = [
-  { index: 0, description: 'Learn webpack', completed: false },
-  { index: 1, description: 'Read 20 pages of book', completed: false },
-  { index: 2, description: 'Create portfolio', completed: false },
-];
+const tasks = localStorage.getItem('items')
+  ? JSON.parse(localStorage.getItem('items'))
+  : [
+    { index: 0, description: 'Learn webpack', completed: false },
+    { index: 1, description: 'Read 20 pages of book', completed: false },
+    { index: 2, description: 'Create portfolio', completed: false },
+  ];
 
-const createList = (todo) => {
-  const container = document.getElementById('container');
-  const item = document.createElement('div');
-  item.classList.add('item', 'border', 'draggable');
-  item.setAttribute('draggable', true);
+localStorage.setItem('items', JSON.stringify(tasks));
+const data = JSON.parse(localStorage.getItem('items'));
+
+const createList = (todoItem) => {
+  if (!todoItem) {
+    return;
+  }
+
+  const todoAppContainer = document.getElementById('todoAppContainer');
+
+  const todoItemElement = document.createElement('div');
+  todoItemElement.classList.add('item', 'borderBottom', 'draggable');
+  todoItemElement.id = todoItem.index;
+  todoItemElement.setAttribute('draggable', true);
+
   const checkbox = document.createElement('input');
   checkbox.setAttribute('type', 'checkbox');
-  const span = document.createElement('span');
-  span.classList.add('text');
+  checkbox.checked = todoItem.completed;
+
+  const descriptionSpan = document.createElement('span');
+  descriptionSpan.classList.add('text');
+
+  if (todoItem.completed) {
+    descriptionSpan.classList.add('check');
+  }
+
   const icon = document.createElement('i');
   icon.classList.add('fas', 'fa-ellipsis-v');
-  if (todo !== undefined) {
-    container.appendChild(item);
-    span.innerHTML = todo;
-    item.append(checkbox, span, icon);
-  }
+  todoAppContainer.appendChild(todoItemElement);
+  descriptionSpan.innerHTML = todoItem.description;
+  todoItemElement.append(checkbox, descriptionSpan, icon);
+  dragDrop(tasks);
+  todoStatusUpdate(tasks);
 };
 
-tasks.forEach((item) => {
-  createList(item.description);
+data.forEach((object) => {
+  createList(object);
 });
