@@ -1,11 +1,9 @@
-/** @format */
-
-//import './style.css';
+/* eslint-disable no-restricted-globals, prefer-destructuring */
+// import './style.css';
 import todoStatusUpdate from './todoStatusUpdate.js';
 import dragDrop from './dragDrop.js';
 import deleteCompletedTodoItem from './deleteAll.js';
 import addTodo from './addTodo.js';
-//import deleteOne from './deleteOne.js';
 
 const tasks = localStorage.getItem('items')
   ? JSON.parse(localStorage.getItem('items'))
@@ -56,19 +54,17 @@ data.forEach((object) => {
 const deleteOne = (tasks) => {
   const trashIcon = document.querySelectorAll('.fa-trash-alt');
 
-  trashIcon.forEach((icon) =>
-    icon.addEventListener('click', () => {
-      let id = parseInt(icon.parentNode.id);
+  trashIcon.forEach((icon) => icon.addEventListener('click', () => {
+    const id = icon.parentNode.id;
 
-      tasks.splice(id, 1);
-      for (let i = 0; i < tasks.length; i += 1) {
-        tasks[i].index = i;
-      }
+    tasks.splice(id, 1);
+    for (let i = 0; i < tasks.length; i += 1) {
+      tasks[i].index = i;
+    }
 
-      localStorage.setItem('items', JSON.stringify(tasks));
-      //   // location.reload()
-    })
-  );
+    localStorage.setItem('items', JSON.stringify(tasks));
+    location.reload();
+  }));
 };
 
 deleteOne(tasks);
@@ -90,3 +86,4 @@ const edit = (tasks) => {
   }
 };
 edit(tasks);
+/* eslint-enable no-restricted-globals, prefer-destructuring */
