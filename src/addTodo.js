@@ -4,7 +4,7 @@ const addTodoTextToBox = (tasks, createList) => {
   inputText.addEventListener('keyup', (e) => {
     if (e.keyCode === 13) {
       const newItem = {
-        index: parseInt(`${tasks.length}`),
+        index: Number(`${tasks.length}`),
         description: `${inputText.value}`,
         completed: false,
       };

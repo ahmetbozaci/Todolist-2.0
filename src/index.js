@@ -1,6 +1,6 @@
 /** @format */
 
-//import './style.css';
+// import './style.css';
 import todoStatusUpdate from './todoStatusUpdate.js';
 import dragDrop from './dragDrop.js';
 import deleteCompletedTodoItem from './deleteAll.js';
@@ -61,7 +61,7 @@ const edit = (tasks) => {
     todoTextSpan[i].addEventListener('keydown', (event) => {
       if (event.key === 'Enter') {
         tasks[i].description = todoTextSpan[i].textContent;
-        localStorage.setItem('items', JSON.stringify(tasks))
+        localStorage.setItem('items', JSON.stringify(tasks));
       }
     });
   }
