@@ -55,7 +55,7 @@ data.forEach((object) => {
 const edit = (tasks) => {
   const todoTextSpan = document.querySelectorAll('.text');
 
-  todoTextSpan.forEach(span => span.contentEditable = true);
+  todoTextSpan.forEach(span => {span.contentEditable = true});
 
   for (let i = 0; i < todoTextSpan.length; i += 1) {
     todoTextSpan[i].addEventListener('keydown', (event) => {
