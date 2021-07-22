@@ -1,4 +1,4 @@
-import './style.css';
+//import './style.css';
 import todoStatusUpdate from './todoStatusUpdate.js';
 import dragDrop from './dragDrop.js';
 
@@ -12,6 +12,24 @@ const tasks = localStorage.getItem('items')
 
 localStorage.setItem('items', JSON.stringify(tasks));
 const data = JSON.parse(localStorage.getItem('items'));
+
+const addTodoTextBox = () => {
+  const inputText = document.getElementById('input-text');
+  inputText.addEventListener('keyup', (e) => {
+    if (e.keyCode === 13) {
+      const newItem = {
+        index: parseInt(`${tasks.length}`),
+        description: `${inputText.value}`,
+        completed: false,
+      };
+      createList(newItem);
+      tasks.push(newItem);
+      localStorage.setItem('items', JSON.stringify(tasks));
+    }
+  });
+};
+
+addTodoTextBox();
 
 const createList = (todoItem) => {
   if (!todoItem) {
