@@ -1,8 +1,11 @@
-import './style.css';
+/** @format */
+
+//import './style.css';
 import todoStatusUpdate from './todoStatusUpdate.js';
 import dragDrop from './dragDrop.js';
 import deleteCompletedTodoItem from './deleteAll.js';
 import addTodo from './addTodo.js';
+//import deleteOne from './deleteOne.js';
 
 const tasks = localStorage.getItem('items')
   ? JSON.parse(localStorage.getItem('items'))
@@ -35,7 +38,7 @@ const createList = (todoItem) => {
   }
 
   const icon = document.createElement('i');
-  icon.classList.add('fas', 'fa-ellipsis-v');
+  icon.classList.add('fas', 'fa-trash-alt');
   todoAppContainer.appendChild(todoItemElement);
   descriptionSpan.innerHTML = todoItem.description;
   todoItemElement.append(checkbox, descriptionSpan, icon);
@@ -49,6 +52,26 @@ deleteCompletedTodoItem(tasks);
 data.forEach((object) => {
   createList(object);
 });
+
+const deleteOne = (tasks) => {
+  const trashIcon = document.querySelectorAll('.fa-trash-alt');
+
+  trashIcon.forEach((icon) =>
+    icon.addEventListener('click', () => {
+      let id = parseInt(icon.parentNode.id);
+
+      tasks.splice(id, 1);
+      for (let i = 0; i < tasks.length; i += 1) {
+        tasks[i].index = i;
+      }
+
+      localStorage.setItem('items', JSON.stringify(tasks));
+      //   // location.reload()
+    })
+  );
+};
+
+deleteOne(tasks);
 
 const edit = (tasks) => {
   const todoTextSpan = document.querySelectorAll('.text');
