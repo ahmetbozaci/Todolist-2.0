@@ -1,4 +1,3 @@
-/* eslint-disable no-restricted-globals, prefer-destructuring */
 // import './style.css';
 import todoStatusUpdate from './todoStatusUpdate.js';
 import dragDrop from './dragDrop.js';
@@ -49,11 +48,9 @@ data.forEach((object) => {
   createList(object);
 });
 
-todoStatusUpdate(tasks)
+todoStatusUpdate(tasks);
 deleteCompletedTodoItem(tasks);
 deleteOnlyOne(tasks);
 addTodo(tasks);
 dragDrop(tasks);
 editTodo(tasks);
-
-/* eslint-enable no-restricted-globals, prefer-destructuring */
