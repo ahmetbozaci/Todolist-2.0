@@ -2,7 +2,7 @@
 // import './style.css';
 import todoStatusUpdate from './todoStatusUpdate.js';
 import dragDrop from './dragDrop.js';
-import deleteCompletedTodoItem from './deleteAll.js';
+import { deleteOnlyOne, deleteCompletedTodoItem } from './deleteTodo.js';
 import addTodo from './addTodo.js';
 
 const tasks = localStorage.getItem('items')
@@ -18,7 +18,6 @@ const createList = (todoItem) => {
   }
 
   const todoAppContainer = document.getElementById('todoAppContainer');
-
   const todoItemElement = document.createElement('div');
   todoItemElement.classList.add('item', 'borderBottom');
   todoItemElement.id = todoItem.index;
@@ -26,7 +25,7 @@ const createList = (todoItem) => {
 
   const checkbox = document.createElement('input');
   checkbox.setAttribute('type', 'checkbox');
-  checkbox.classList.add('pointer')
+  checkbox.classList.add('pointer');
   checkbox.checked = todoItem.completed;
 
   const descriptionSpan = document.createElement('span');
@@ -54,23 +53,25 @@ data.forEach((object) => {
   createList(object);
 });
 
-const deleteOne = (tasks) => {
-  const trashIcon = document.querySelectorAll('.fa-trash-alt');
+// const deleteOne = (tasks) => {
+//   const trashIcon = document.querySelectorAll('.fa-trash-alt');
 
-  trashIcon.forEach((icon) => icon.addEventListener('click', () => {
-    const id = icon.parentNode.id;
+//   trashIcon.forEach((icon) => icon.addEventListener('click', () => {
+//     const id = icon.parentNode.id;
 
-    tasks.splice(id, 1);
-    for (let i = 0; i < tasks.length; i += 1) {
-      tasks[i].index = i;
-    }
+//     tasks.splice(id, 1);
+//     for (let i = 0; i < tasks.length; i += 1) {
+//       tasks[i].index = i;
+//     }
 
-    localStorage.setItem('items', JSON.stringify(tasks));
-    location.reload();
-  }));
-};
+//     localStorage.setItem('items', JSON.stringify(tasks));
+//     location.reload();
+//   }));
+// };
 
-deleteOne(tasks);
+// deleteOne(tasks);
+
+deleteOnlyOne(tasks);
 
 const edit = (tasks) => {
   const todoTextSpan = document.querySelectorAll('.text');
