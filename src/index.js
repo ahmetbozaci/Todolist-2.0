@@ -5,6 +5,7 @@ import dragDrop from './dragDrop.js';
 import { deleteOnlyOne, deleteCompletedTodoItem } from './deleteTodo.js';
 import addTodo from './addTodo.js';
 import addToStorage from './addToStorage.js';
+import editTodo from './editTodo.js';
 
 const tasks = localStorage.getItem('items')
   ? JSON.parse(localStorage.getItem('items'))
@@ -42,35 +43,17 @@ const createList = (todoItem) => {
   todoAppContainer.appendChild(todoItemElement);
   descriptionSpan.innerHTML = todoItem.description;
   todoItemElement.append(checkbox, descriptionSpan, icon);
-
-  dragDrop(tasks);
-  todoStatusUpdate(tasks);
 };
-
-addTodo(tasks);
-deleteCompletedTodoItem(tasks);
 
 data.forEach((object) => {
   createList(object);
 });
 
+todoStatusUpdate(tasks)
+deleteCompletedTodoItem(tasks);
 deleteOnlyOne(tasks);
+addTodo(tasks);
+dragDrop(tasks);
+editTodo(tasks);
 
-const edit = (tasks) => {
-  const todoTextSpan = document.querySelectorAll('.text');
-
-  todoTextSpan.forEach((span) => {
-    span.contentEditable = true;
-  });
-
-  for (let i = 0; i < todoTextSpan.length; i += 1) {
-    todoTextSpan[i].addEventListener('keydown', (event) => {
-      if (event.key === 'Enter') {
-        tasks[i].description = todoTextSpan[i].textContent;
-        localStorage.setItem('items', JSON.stringify(tasks));
-      }
-    });
-  }
-};
-edit(tasks);
 /* eslint-enable no-restricted-globals, prefer-destructuring */

@@ -1,7 +1,7 @@
-/* eslint-disable no-unused-vars, no-restricted-globals */
+/* eslint-disable no-restricted-globals */
 import addToStorage from './addToStorage.js';
 
-const addTodoTextToBox = (tasks, createList) => {
+const addTodoTextToBox = (tasks) => {
   const inputText = document.getElementById('input-text');
   inputText.addEventListener('keyup', (e) => {
     if (e.keyCode === 13) {
@@ -12,7 +12,7 @@ const addTodoTextToBox = (tasks, createList) => {
       };
 
       tasks.push(newItem);
-      addToStorage(tasks)
+      addToStorage(tasks);
       location.reload();
     }
   });
