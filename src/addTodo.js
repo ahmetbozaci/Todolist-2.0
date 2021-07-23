@@ -13,6 +13,7 @@ const addTodoTextToBox = (tasks) => {
 
       tasks.push(newItem);
       addToStorage(tasks);
+      inputText.value = '';
       location.reload();
     }
   });
