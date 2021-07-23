@@ -4,12 +4,13 @@ import todoStatusUpdate from './todoStatusUpdate.js';
 import dragDrop from './dragDrop.js';
 import { deleteOnlyOne, deleteCompletedTodoItem } from './deleteTodo.js';
 import addTodo from './addTodo.js';
+import addToStorage from './addToStorage.js';
 
 const tasks = localStorage.getItem('items')
   ? JSON.parse(localStorage.getItem('items'))
   : [];
 
-localStorage.setItem('items', JSON.stringify(tasks));
+addToStorage(tasks);
 const data = JSON.parse(localStorage.getItem('items'));
 
 const createList = (todoItem) => {
@@ -52,24 +53,6 @@ deleteCompletedTodoItem(tasks);
 data.forEach((object) => {
   createList(object);
 });
-
-// const deleteOne = (tasks) => {
-//   const trashIcon = document.querySelectorAll('.fa-trash-alt');
-
-//   trashIcon.forEach((icon) => icon.addEventListener('click', () => {
-//     const id = icon.parentNode.id;
-
-//     tasks.splice(id, 1);
-//     for (let i = 0; i < tasks.length; i += 1) {
-//       tasks[i].index = i;
-//     }
-
-//     localStorage.setItem('items', JSON.stringify(tasks));
-//     location.reload();
-//   }));
-// };
-
-// deleteOne(tasks);
 
 deleteOnlyOne(tasks);
 

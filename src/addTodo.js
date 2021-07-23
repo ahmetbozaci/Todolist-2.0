@@ -1,4 +1,6 @@
 /* eslint-disable no-unused-vars, no-restricted-globals */
+import addToStorage from './addToStorage.js';
+
 const addTodoTextToBox = (tasks, createList) => {
   const inputText = document.getElementById('input-text');
   inputText.addEventListener('keyup', (e) => {
@@ -10,7 +12,7 @@ const addTodoTextToBox = (tasks, createList) => {
       };
 
       tasks.push(newItem);
-      localStorage.setItem('items', JSON.stringify(tasks));
+      addToStorage(tasks)
       location.reload();
     }
   });

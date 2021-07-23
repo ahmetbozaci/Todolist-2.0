@@ -1,4 +1,6 @@
 /* eslint-disable no-unused-vars */
+import addToStorage from './addToStorage.js';
+
 function getDragAfterElement(container, y) {
   const draggableElements = [
     ...container.querySelectorAll('.item:not(.dragging)'),
@@ -37,7 +39,7 @@ function dragDrop(tasks) {
       }
 
       tasks = tasks.sort((a, b) => (a.index - b.index));
-      localStorage.setItem('items', JSON.stringify(tasks));
+      addToStorage(tasks);
     });
   });
 

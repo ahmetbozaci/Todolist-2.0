@@ -1,4 +1,6 @@
 /* eslint-disable no-restricted-globals */
+import addToStorage from './addToStorage.js';
+
 const deleteCompletedTodoItem = (tasks) => {
   const clearAll = document.getElementsByClassName('clearAll');
   clearAll[0].addEventListener('click', () => {
@@ -9,7 +11,7 @@ const deleteCompletedTodoItem = (tasks) => {
     for (let i = 0; i < tasks.length; i += 1) {
       tasks[i].index = i;
     }
-    localStorage.setItem('items', JSON.stringify(tasks));
+    addToStorage(tasks);
     location.reload();
   });
 };
@@ -25,7 +27,7 @@ const deleteOnlyOne = (tasks) => {
       tasks[i].index = i;
     }
 
-    localStorage.setItem('items', JSON.stringify(tasks));
+    addToStorage(tasks);
     location.reload();
   }));
 };
