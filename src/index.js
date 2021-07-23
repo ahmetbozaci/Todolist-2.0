@@ -1,5 +1,5 @@
 /* eslint-disable no-restricted-globals, prefer-destructuring */
-import './style.css';
+// import './style.css';
 import todoStatusUpdate from './todoStatusUpdate.js';
 import dragDrop from './dragDrop.js';
 import deleteCompletedTodoItem from './deleteAll.js';
@@ -20,12 +20,13 @@ const createList = (todoItem) => {
   const todoAppContainer = document.getElementById('todoAppContainer');
 
   const todoItemElement = document.createElement('div');
-  todoItemElement.classList.add('item', 'borderBottom', 'draggable');
+  todoItemElement.classList.add('item', 'borderBottom');
   todoItemElement.id = todoItem.index;
   todoItemElement.setAttribute('draggable', true);
 
   const checkbox = document.createElement('input');
   checkbox.setAttribute('type', 'checkbox');
+  checkbox.classList.add('pointer')
   checkbox.checked = todoItem.completed;
 
   const descriptionSpan = document.createElement('span');
@@ -36,10 +37,12 @@ const createList = (todoItem) => {
   }
 
   const icon = document.createElement('i');
-  icon.classList.add('fas', 'fa-trash-alt');
+  icon.classList.add('fas', 'fa-trash-alt', 'pointer');
+
   todoAppContainer.appendChild(todoItemElement);
   descriptionSpan.innerHTML = todoItem.description;
   todoItemElement.append(checkbox, descriptionSpan, icon);
+
   dragDrop(tasks);
   todoStatusUpdate(tasks);
 };
