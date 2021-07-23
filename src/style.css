@@ -178,11 +178,6 @@ input {
   width: 94%;
 }
 
-.clear {
-  text-align: center;
-  background-color: #dfdbdb;
-}
-
 input[type='checkbox'] {
   cursor: pointer;
   transform: scale(1.5);
@@ -196,4 +191,14 @@ input[type='checkbox'] {
 
 .dragging {
   opacity: 0.5;
+}
+
+.clearAll {
+  text-align: center;
+  background-color: #dfdbdb;
+}
+
+.clearAll:hover {
+  text-decoration-line: underline;
+  cursor: pointer;
 }
