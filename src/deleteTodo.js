@@ -4,13 +4,12 @@ import addToStorage from './addToStorage.js';
 const deleteCompletedTodoItem = (tasks) => {
   const clearAll = document.getElementsByClassName('clearAll');
   clearAll[0].addEventListener('click', () => {
-    function finish(todo) {
-      return !todo.completed === true;
+    function finished(todo) {
+      return todo.completed === false;
     }
-    tasks = tasks.filter(finish);
-    for (let i = 0; i < tasks.length; i += 1) {
-      tasks[i].index = i;
-    }
+
+    tasks = tasks.filter(finished);
+    tasks.forEach((task, index) => { task.index = index; });
     addToStorage(tasks);
     location.reload();
   });
@@ -22,9 +21,7 @@ const deleteOnlyOne = (tasks) => {
   trashIcon.forEach((icon) => icon.addEventListener('click', () => {
     const todoItem = icon.parentNode;
     tasks.splice(todoItem.id, 1);
-    for (let i = 0; i < tasks.length; i += 1) {
-      tasks[i].index = i;
-    }
+    tasks.forEach((task, index) => { task.index = index; });
 
     addToStorage(tasks);
     location.reload();
