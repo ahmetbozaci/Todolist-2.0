@@ -14,9 +14,7 @@ addToStorage(tasks);
 const data = JSON.parse(localStorage.getItem('items'));
 
 const createList = (todoItem) => {
-  if (!todoItem) {
-    return;
-  }
+  if (!todoItem) return;
 
   const todoAppContainer = document.getElementById('todoAppContainer');
   const todoItemElement = document.createElement('div');
@@ -32,9 +30,7 @@ const createList = (todoItem) => {
   const descriptionSpan = document.createElement('span');
   descriptionSpan.classList.add('text');
 
-  if (todoItem.completed) {
-    descriptionSpan.classList.add('check');
-  }
+  if (todoItem.completed) descriptionSpan.classList.add('check');
 
   const icon = document.createElement('i');
   icon.classList.add('fas', 'fa-trash-alt', 'pointer');
@@ -44,8 +40,8 @@ const createList = (todoItem) => {
   todoItemElement.append(checkbox, descriptionSpan, icon);
 };
 
-data.forEach((object) => {
-  createList(object);
+data.forEach((todoObject) => {
+  createList(todoObject);
 });
 
 todoStatusUpdate(tasks);
