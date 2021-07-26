@@ -2,8 +2,8 @@
 import addToStorage from './addToStorage.js';
 
 const deleteCompletedTodoItem = (tasks) => {
-  const clearAll = document.getElementsByClassName('clearAll');
-  clearAll[0].addEventListener('click', () => {
+  const clearAllBtn = document.querySelector('.clearAllBtn');
+  clearAllBtn.addEventListener('click', () => {
     function finished(todo) {
       return todo.completed === false;
     }

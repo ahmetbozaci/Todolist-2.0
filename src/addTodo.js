@@ -20,4 +20,4 @@ const addTodoTextToBox = (tasks) => {
 };
 
 export default addTodoTextToBox;
-/* eslint-enable no-unused-vars, no-restricted-globals */
+/* eslint-enable no-restricted-globals */

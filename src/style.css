@@ -186,12 +186,12 @@ input[type='checkbox'] {
   opacity: 0.4;
 }
 
-.clearAll {
+.clearAllBtn {
   text-align: center;
   background-color: #dfdbdb;
 }
 
-.clearAll:hover {
+.clearAllBtn:hover {
   text-decoration: underline;
   cursor: pointer;
 }
