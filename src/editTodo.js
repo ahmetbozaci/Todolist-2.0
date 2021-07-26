@@ -7,14 +7,14 @@ const editTodo = (tasks) => {
     span.contentEditable = true;
   });
 
-  for (let i = 0; i < todoTextSpan.length; i += 1) {
-    todoTextSpan[i].addEventListener('keydown', (event) => {
+  todoTextSpan.forEach((span, index) => {
+    span.addEventListener('keydown', (event) => {
       if (event.key === 'Enter') {
-        tasks[i].description = todoTextSpan[i].textContent;
+        tasks[index].description = span.textContent;
         addToStorage(tasks);
       }
     });
-  }
+  });
 };
 
 export default editTodo;
