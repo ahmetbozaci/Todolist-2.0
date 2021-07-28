@@ -133,7 +133,7 @@ table {
 
 /*! PAGE STYLING START HERE  */
 .page {
-  font-size: 20px;
+  font-size: 1.5rem;
   color: #3b3b3b;
   font-family: 'Open Sans', 'Lucida Grande', tahoma, verdana, arial, sans-serif;
   font-weight: 300;
@@ -144,34 +144,18 @@ table {
   width: 40%;
 }
 
-.item {
-  display: flex;
-  justify-content: space-between;
-}
-
-li {
-  list-style-type: none;
-  cursor: move;
-  user-select: none;
-}
-
 .box {
   box-sizing: border-box;
-  box-shadow: 0 2px 8px rgb(0 0 0 / 50%);
-  margin-top: 10rem;
-  border-radius: 5px;
-}
-
-.borderBottom {
-  border-bottom: 1px solid #b8b6b6;
-  padding: 1.2rem 1rem;
+  box-shadow: 0 2px 8px;
+  margin-top: 5rem;
+  border-radius: 0.5rem;
 }
 
 input {
   border: 0;
   outline: none;
-  color: rgb(80, 79, 79);
-  font-size: 15px;
+  color: #504f4f;
+  font-size: 1rem;
 }
 
 #input-text {
@@ -179,8 +163,17 @@ input {
 }
 
 input[type='checkbox'] {
-  cursor: pointer;
-  transform: scale(1.5);
+  transform: scale(1.6);
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.borderBottom {
+  border-bottom: 1px solid #b8b6b6;
+  padding: 1.2rem 1rem;
 }
 
 .check {
@@ -190,15 +183,19 @@ input[type='checkbox'] {
 }
 
 .dragging {
-  opacity: 0.5;
+  opacity: 0.4;
 }
 
-.clearAll {
+.clearAllBtn {
   text-align: center;
   background-color: #dfdbdb;
 }
 
-.clearAll:hover {
-  text-decoration-line: underline;
+.clearAllBtn:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.pointer {
   cursor: pointer;
 }

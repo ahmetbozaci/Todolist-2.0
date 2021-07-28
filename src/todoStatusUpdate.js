@@ -1,17 +1,20 @@
+import addToStorage from './addToStorage.js';
+
 export default function todoStatusUpdate(tasks) {
-  const checkbox = document.querySelectorAll('input[type=checkbox]');
+  const checkboxes = document.querySelectorAll('input[type=checkbox]');
   const descriptionSpans = document.getElementsByClassName('text');
-  for (let i = 0; i < checkbox.length; i += 1) {
-    checkbox[i].addEventListener('click', () => {
-      if (checkbox[i].checked) {
-        tasks[i].completed = true;
-        descriptionSpans[i].classList.add('check');
-        localStorage.setItem('items', JSON.stringify(tasks));
+
+  checkboxes.forEach((checkbox, index) => {
+    checkbox.addEventListener('click', () => {
+      if (checkbox.checked) {
+        tasks[index].completed = true;
+        descriptionSpans[index].classList.add('check');
+        addToStorage(tasks);
       } else {
-        tasks[i].completed = false;
-        descriptionSpans[i].classList.remove('check');
-        localStorage.setItem('items', JSON.stringify(tasks));
+        tasks[index].completed = false;
+        descriptionSpans[index].classList.remove('check');
+        addToStorage(tasks);
       }
     });
-  }
+  });
 }

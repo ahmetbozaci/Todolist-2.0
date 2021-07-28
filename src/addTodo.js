@@ -1,5 +1,7 @@
-/* eslint-disable no-unused-vars, no-restricted-globals */
-const addTodoTextToBox = (tasks, createList) => {
+/* eslint-disable no-restricted-globals */
+import addToStorage from './addToStorage.js';
+
+const addTodoTextToBox = (tasks) => {
   const inputText = document.getElementById('input-text');
   inputText.addEventListener('keyup', (e) => {
     if (e.keyCode === 13) {
@@ -10,11 +12,12 @@ const addTodoTextToBox = (tasks, createList) => {
       };
 
       tasks.push(newItem);
-      localStorage.setItem('items', JSON.stringify(tasks));
+      addToStorage(tasks);
+      inputText.value = '';
       location.reload();
     }
   });
 };
 
 export default addTodoTextToBox;
-/* eslint-enable no-unused-vars, no-restricted-globals */
+/* eslint-enable no-restricted-globals */
