@@ -2,11 +2,9 @@
  * @jest-environment jsdom
  */
 
-import { expect, it } from '@jest/globals';
-import { describe } from 'yargs'
-import editToDo from '../__mocks__/mockEditToDo.js'
+import editToDo from '../__mocks__/mockEditToDo.js';
 
-describe ('editToDo', () => {
+describe('editToDo', () => {
   const tasks = [
     {
       index: 1,
@@ -26,6 +24,14 @@ describe ('editToDo', () => {
   ];
 
   it('should check if a task editable', () => {
-    expect(tasks)
+    expect(editToDo(tasks, 0, 'Finish project')).toEqual([
+      { completed: false, description: 'Finish project', index: 1 },
+      { completed: true, description: 'Task 2', index: 2 },
+      { completed: false, description: 'Task 3', index: 3 },
+    ]);
+  });
+
+  it('Array length shouldnt change', () => {
+    expect(tasks.length).toBe(3);
   });
 });

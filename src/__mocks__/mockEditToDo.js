@@ -1,12 +1,6 @@
-const editTodo = (tasks) => {
-
-  todoTextSpan.forEach((span) => {
-    span.contentEditable = true;
-  });
-
-  todoTextSpan.forEach((span, index) => {
-        tasks[index].description = span.textContent;
-  });
+const editTodo = (tasks, index, text) => {
+  tasks[index].description = text;
+  return tasks;
 };
 
 export default editTodo;
