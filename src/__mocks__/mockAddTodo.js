@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
- */
-
 const addTodo = (tasks) => {
   const inputText = document.getElementById('input-text');
   const newItem = {
