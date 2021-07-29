@@ -24,7 +24,8 @@ describe('deleteTodo', () => {
   it('Should delete tasks which are completed', () => {
     expect(deleteCompletedTodoItem(tasks)).toHaveLength(2)
   });
-  // it('filter should identify tasks which are completed', () => {
-  //   expect(tasks).toBe(1)
-  // });
+
+  it('Index of task 0 should be 1', () => {
+    expect(deleteCompletedTodoItem(tasks)[0].index).toBe(1)
+  });
 })
