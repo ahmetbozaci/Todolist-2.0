@@ -6,7 +6,7 @@
 import {
   deleteCompletedTodoItem,
   deleteOnlyOne,
-} from '../__mocks__/mockDeleteTodo';
+} from '../__mocks__/mockDeleteTodo.js';
 
 describe('deleteTodo', () => {
   const tasks = [
@@ -37,7 +37,7 @@ describe('deleteTodo', () => {
 });
 
 describe('deleteOnlyOne', () => {
- 
+
   const tasks = [
     {
       index: 0,
@@ -57,7 +57,7 @@ describe('deleteOnlyOne', () => {
   ];
 
   it('should delete only one tasks from array', () => {
-    expect(deleteOnlyOne(tasks,2)).toHaveLength(2);
+    expect(deleteOnlyOne(tasks, 2)).toHaveLength(2);
   });
 
   it('Index should update after delete one item', () => {
@@ -65,7 +65,7 @@ describe('deleteOnlyOne', () => {
   });
 
   it('Should return update array', () => {
-    expect(deleteOnlyOne(tasks,0)).toEqual([{
+    expect(deleteOnlyOne(tasks, 0)).toEqual([{
       index: 0,
       description: 'Task 2',
       completed: true,
