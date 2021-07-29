@@ -37,7 +37,6 @@ describe('deleteTodo', () => {
 });
 
 describe('deleteOnlyOne', () => {
-
   const tasks = [
     {
       index: 0,
