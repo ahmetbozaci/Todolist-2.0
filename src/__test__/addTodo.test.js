@@ -13,7 +13,15 @@ describe('addTodo', () => {
   });
 
   it('Should return task array with attached todo object', () => {
-    expect(addTodo(tasks)).toHaveLength(1)
+    expect(addTodo(tasks)).toHaveLength(2)
+  });
+
+  it('Description should have input value', () => {
+    expect(tasks[0].description).toBe('Learn webpack')
+  });
+
+  it('Status should be false', () => {
+    expect(tasks[0].completed).toBe(false);
   });
 
 })
