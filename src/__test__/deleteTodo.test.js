@@ -5,7 +5,7 @@
 import deleteCompletedTodoItem from "../__mocks__/mockDeleteTodo";
 
 describe('deleteTodo', () => {
-  const task = [{
+  const tasks = [{
     index: 1,
     description: "Task 1",
     completed: false,
@@ -22,10 +22,9 @@ describe('deleteTodo', () => {
   }]
 
   it('Should delete tasks which are completed', () => {
-    expect(deleteCompletedTodoItem(task)).toHaveLength(2)
+    expect(deleteCompletedTodoItem(tasks)).toHaveLength(2)
   });
-    deleteCompletedTodoItem(task)
-  it('filter should identify tasks which are completed', () => {
-    expect(task).toBe(1)
-  });
+  // it('filter should identify tasks which are completed', () => {
+  //   expect(tasks).toBe(1)
+  // });
 })

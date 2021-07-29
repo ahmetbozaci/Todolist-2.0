@@ -24,5 +24,9 @@ describe('addTodo', () => {
     expect(tasks[0].completed).toBe(false);
   });
 
+  it('Status should be false', () => {
+    expect(tasks[1].index).toBe(1);
+  });
+
 })
 
