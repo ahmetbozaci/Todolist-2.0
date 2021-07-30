@@ -1,5 +1,5 @@
 /**
- * @format
+ *
  * @jest-environment jsdom
  */
 
@@ -21,18 +21,26 @@ const tasks = [
     description: 'Task 3',
     completed: false,
   },
+  {
+    index: 4,
+    description: 'Task 4',
+    completed: true,
+  },
 ];
 
 describe('Status Update', () => {
   it('Completed task value should be true', () => {
     expect(todoStatusUpdate(tasks, 0)[0].completed).toBe(true);
-  })
+  });
 
   it('Completed task value should be true', () => {
     expect(todoStatusUpdate(tasks, 1)[1].completed).toBe(true);
-  })
+  });
 
   it('Completed task value should be true', () => {
     expect(todoStatusUpdate(tasks, 2)[2].completed).toBe(true);
-  })
-})
+  });
+  it('Completed task value should be true', () => {
+    expect(todoStatusUpdate(tasks, 3)[3].completed).toBe(false);
+  });
+});
