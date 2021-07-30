@@ -1,9 +1,5 @@
-/**
- *
- * @jest-environment jsdom
- */
-
 import todoStatusUpdate from '../__mocks__/mocktodoStatusUpdate.js';
+import localStorageMock from '../__mocks__/mockLocalStorage.js';
 
 const tasks = [
   {
@@ -40,6 +36,11 @@ describe('Status Update', () => {
   it('Completed task value should be true', () => {
     expect(todoStatusUpdate(tasks, 2)[2].completed).toBe(true);
   });
+
+  it('Local storage should update after status update', () => {
+    expect(localStorageMock.getItem('data')[2].completed).toBe(true);
+  });
+
   it('Completed task value should be true', () => {
     expect(todoStatusUpdate(tasks, 3)[3].completed).toBe(false);
   });

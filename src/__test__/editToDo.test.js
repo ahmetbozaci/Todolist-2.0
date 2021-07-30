@@ -1,7 +1,4 @@
-/**
- * @jest-environment jsdom
- */
-
+import localStorageMock from '../__mocks__/mockLocalStorage.js';
 import editToDo from '../__mocks__/mockEditToDo.js';
 
 describe('editToDo', () => {
@@ -29,6 +26,10 @@ describe('editToDo', () => {
       { completed: true, description: 'Task 2', index: 2 },
       { completed: false, description: 'Task 3', index: 3 },
     ]);
+  });
+
+  it('Local storage should update after edit', () => {
+    expect(localStorageMock.getItem('data')[0].description).toBe('Finish project');
   });
 
   it('Array length shouldnt change', () => {

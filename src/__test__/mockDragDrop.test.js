@@ -1,6 +1,5 @@
-/** @format */
-
 import dragDrop from '../__mocks__/mockDragDrop.js';
+import localStorageMock from '../__mocks__/mockLocalStorage.js';
 
 describe('Drag Drop', () => {
   const tasks = [
@@ -33,7 +32,9 @@ describe('Drag Drop', () => {
   test('something', () => {
     expect(tasks[1].description).toBe('Task 3');
   });
-
+  it('Local storage should update after drag drop', () => {
+    expect(localStorageMock.getItem('data')[1].description).toBe('Task 3');
+  });
   test('something', () => {
     expect(dragDrop(tasks, 1, 3)[1].description).toBe('Task 4');
   });
@@ -41,6 +42,4 @@ describe('Drag Drop', () => {
   test('something', () => {
     expect(tasks[3].description).toBe('Task 3');
   });
-
- 
 });

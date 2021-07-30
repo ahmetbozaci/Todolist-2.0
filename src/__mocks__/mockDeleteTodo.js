@@ -1,4 +1,5 @@
 /** @format */
+import localStorageMock from './mockLocalStorage.js';
 
 const deleteCompletedTodoItem = (tasks) => {
   function finished(todo) {
@@ -9,6 +10,7 @@ const deleteCompletedTodoItem = (tasks) => {
   tasks.forEach((task, index) => {
     task.index = index;
   });
+  localStorageMock.setItem('data', tasks);
   return tasks;
 };
 
@@ -17,6 +19,7 @@ const deleteOnlyOne = (tasks, index) => {
   tasks.forEach((task, index) => {
     task.index = index;
   });
+  localStorageMock.setItem('data', tasks);
   return tasks;
 };
 

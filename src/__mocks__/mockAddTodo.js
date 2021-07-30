@@ -1,3 +1,5 @@
+import localStorageMock from './mockLocalStorage.js';
+
 const addTodo = (tasks) => {
   const inputText = document.getElementById('input-text');
   const newItem = {
@@ -6,6 +8,7 @@ const addTodo = (tasks) => {
     completed: false,
   };
   tasks.push(newItem);
+  localStorageMock.setItem('data', tasks);
   return tasks;
 };
 

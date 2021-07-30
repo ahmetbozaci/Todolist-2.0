@@ -2,10 +2,8 @@
  * @jest-environment jsdom
  */
 
-import { it } from '@jest/globals';
 import addTodo from '../__mocks__/mockAddTodo.js';
 import localStorageMock from '../__mocks__/mockLocalStorage.js';
-import mockLocalStorage from '../__mocks__/mockLocalStorage.js'
 
 describe('addTodo', () => {
   document.body.innerHTML = '<input id="input-text" value="Learn webpack">';
@@ -13,6 +11,10 @@ describe('addTodo', () => {
 
   it('Should return task array with attached todo object', () => {
     expect(addTodo(tasks)).toHaveLength(1);
+  });
+
+  it('Local storage should update after add new item', () => {
+    expect(localStorageMock.getItem('data')).toHaveLength(1);
   });
 
   it('Should return task array with attached todo object', () => {
@@ -30,10 +32,4 @@ describe('addTodo', () => {
   it('Status should be false', () => {
     expect(tasks[1].index).toBe(1);
   });
-
-  test('should add item to localStorage', () => {
-    expect()
-  })
- 
 });
-
