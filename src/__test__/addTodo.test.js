@@ -3,6 +3,7 @@
  */
 
 import addTodo from '../__mocks__/mockAddTodo.js';
+import localStorageMock from '../__mocks__/mockLocalStorage.js';
 
 describe('addTodo', () => {
   document.body.innerHTML = '<input id="input-text" value="Learn webpack">';
@@ -10,6 +11,10 @@ describe('addTodo', () => {
 
   it('Should return task array with attached todo object', () => {
     expect(addTodo(tasks)).toHaveLength(1);
+  });
+
+  it('Local storage should update after add new item', () => {
+    expect(localStorageMock.getItem('data')).toHaveLength(1);
   });
 
   it('Should return task array with attached todo object', () => {

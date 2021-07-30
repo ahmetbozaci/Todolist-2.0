@@ -1,12 +1,8 @@
-/**
- * @format
- * @jest-environment jsdom
- */
-
 import {
   deleteCompletedTodoItem,
   deleteOnlyOne,
 } from '../__mocks__/mockDeleteTodo.js';
+import localStorageMock from '../__mocks__/mockLocalStorage.js';
 
 describe('deleteTodo', () => {
   const tasks = [
@@ -23,12 +19,25 @@ describe('deleteTodo', () => {
     {
       index: 3,
       description: 'Task 3',
+      completed: true,
+    },
+    {
+      index: 4,
+      description: 'Task 4',
       completed: false,
     },
   ];
 
   it('Should delete tasks which are completed', () => {
     expect(deleteCompletedTodoItem(tasks)).toHaveLength(2);
+  });
+
+  it('Local storage should update after delete', () => {
+    expect(localStorageMock.getItem('data')[1].description).toBe('Task 4');
+  });
+
+  it('Local storage should update after delete', () => {
+    expect(localStorageMock.getItem('data')[1].index).toBe(1);
   });
 
   it('Index of task 0 should be 1', () => {
@@ -57,6 +66,14 @@ describe('deleteOnlyOne', () => {
 
   it('should delete only one tasks from array', () => {
     expect(deleteOnlyOne(tasks, 2)).toHaveLength(2);
+  });
+
+  it('Local storage should update after delete', () => {
+    expect(localStorageMock.getItem('data')).toHaveLength(2);
+  });
+
+  it('Local storage should update after delete', () => {
+    expect(localStorageMock.getItem('data')).toBe(tasks);
   });
 
   it('Index should update after delete one item', () => {
