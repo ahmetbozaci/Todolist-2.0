@@ -7,6 +7,7 @@ import {
   deleteCompletedTodoItem,
   deleteOnlyOne,
 } from '../__mocks__/mockDeleteTodo.js';
+import mockLocalStorage from '../__mocks__/mockLocalStorage.js'
 
 describe('deleteTodo', () => {
   const tasks = [

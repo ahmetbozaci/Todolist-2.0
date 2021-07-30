@@ -2,7 +2,9 @@
  * @jest-environment jsdom
  */
 
+import { it } from '@jest/globals';
 import addTodo from '../__mocks__/mockAddTodo.js';
+import mockLocalStorage from '../__mocks__/mockLocalStorage.js'
 
 describe('addTodo', () => {
   document.body.innerHTML = '<input id="input-text" value="Learn webpack">';
@@ -27,4 +29,9 @@ describe('addTodo', () => {
   it('Status should be false', () => {
     expect(tasks[1].index).toBe(1);
   });
+
+  test('should add item to localStorage', () => {
+    expect()
+  })
+ 
 });
