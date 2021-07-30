@@ -1,7 +1,6 @@
 /** @format */
 
 import dragDrop from '../__mocks__/mockDragDrop.js';
-import mockLocalStorage from '../__mocks__/mockLocalStorage.js'
 
 describe('Drag Drop', () => {
   const tasks = [

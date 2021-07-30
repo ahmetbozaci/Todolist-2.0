@@ -1,15 +1,17 @@
-const store = {};
-const localStoragemock = {
-  // getItem: (key) => store[key],
-  // setItem: (key, value) => {
-  //   store[key] = value;
-  // },
-  // key: (key) => key,
-  const result = localStorage.getItem(items) 
-    if(result) {
-      
-    }
-  
-};
+const localStorageMock = (function() {
+  let store = {};
 
-export default mockLocalStorage;
+  return {
+    getItem: function(key) {
+      return store[key] || null;
+    },
+    setItem: function(key, value) {
+      store[key] = value.toString();
+    },
+    removeItem: function(key) {
+      delete store[key];
+    },
+  };
+})();
+
+export default localStorageMock;

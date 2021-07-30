@@ -4,6 +4,7 @@
 
 import { it } from '@jest/globals';
 import addTodo from '../__mocks__/mockAddTodo.js';
+import localStorageMock from '../__mocks__/mockLocalStorage.js';
 import mockLocalStorage from '../__mocks__/mockLocalStorage.js'
 
 describe('addTodo', () => {
@@ -35,3 +36,4 @@ describe('addTodo', () => {
   })
  
 });
+
