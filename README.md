@@ -2,7 +2,8 @@
 
 # TODO LIST
 
-> User can add list, sorting them, delete them.
+> Todo-list is a tool that organize your task or things you want to do and allows you to mark them as complete. 
+Build with vanilla JS, HTML and CSS.
 
 ![screenshot](./screenshot.png)
 
