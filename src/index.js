@@ -1,16 +1,16 @@
-// import './style.css';
+import './style.css';
 import todoStatusUpdate from './todoStatusUpdate.js';
 import dragDrop from './dragDrop.js';
 import { deleteOnlyOne, deleteCompletedTodoItem } from './deleteTodo.js';
-import addTodo from './addTodo.js';
-import addToStorage from './addToStorage.js';
+import addTodoV2 from './addTodoV2.js';
+import addToStorageV2 from './addToStorageV2.js';
 import editTodo from './editTodo.js';
 
 const tasks = localStorage.getItem('items')
   ? JSON.parse(localStorage.getItem('items'))
   : [];
 
-addToStorage(tasks);
+addToStorageV2(tasks);
 const data = JSON.parse(localStorage.getItem('items'));
 
 const createList = (todoItem) => {
@@ -47,6 +47,6 @@ data.forEach((todoObject) => {
 todoStatusUpdate(tasks);
 deleteCompletedTodoItem(tasks);
 deleteOnlyOne(tasks);
-addTodo(tasks);
+addTodoV2(tasks);
 dragDrop(tasks);
 editTodo(tasks);
